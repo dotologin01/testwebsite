@@ -1,0 +1,70 @@
+/* Grid for dishes */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Styles for individual dish */
+.dish {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  background-color: white;
+  border-radius: 35px;
+  cursor: pointer;
+  filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+  transition: border 0.3s, background-color 0.3s;
+}
+
+.dish img {
+  width: 100%;
+  border-radius: 35px;
+}
+
+.dish p {
+  margin: 10px 0;
+}
+
+.dish .price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dish .name {
+  font-size: 22px;
+}
+
+.dish .weight {
+  color: gray;
+}
+
+.dish button {
+  background-color: #f1eee9;
+  padding: 10px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.dish:hover {
+  border: 2px solid tomato;
+}
+
+.dish:hover button {
+  background-color: tomato;
+}
+
+/* Adaptation for screen widths ≤ 800px */
+@media (max-width: 800px) {
+  .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Adaptation for screen widths ≤ 600px */
+@media (max-width: 600px) {
+  .grid-container {
+      grid-template-columns: 1fr;
+  }
+}
