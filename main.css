@@ -88,3 +88,43 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+
+/* Universal box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Basic styles for blocks */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+
+#active {
+    color: tomato;
+}
+
+/* Footer styles */
+footer {
+    background-color: black;
+    color: white;
+}
