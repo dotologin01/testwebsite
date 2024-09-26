@@ -96,3 +96,35 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* Adaptation for screen widths ≤ 800px */
+@media (max-width: 800px) {
+
+  }
+
+  /* Adaptation for screen widths ≤ 600px */
+@media (max-width: 600px) {
+    h1 {
+        text-align: center; 
+    }
+
+    nav h3 {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    nav a {
+        font-size: 16pt; 
+    }
+
+    table {
+        font-size: calc(100% - 2px); 
+    }
+}
+
+ /* Adaptation for screen widths ≤ 400px */
+@media (max-width: 400px) {
+    table {
+        font-size: calc(100% - 4px); 
+    }
+}
