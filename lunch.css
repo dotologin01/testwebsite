@@ -70,11 +70,6 @@
 }
 
 /*----ORDER----*/
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
 .order-container {
   max-width: 900px;
   margin: 0 auto;
