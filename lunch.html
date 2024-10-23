@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <script src="dishes.js" type="module"></script>
+    <script src="lunch.js" type="module"></script>
 <header>
     <h1>Food Construct</h1>
     <nav>
@@ -23,91 +24,54 @@
     <!-- Section with soups -->
     <section>
         <h2>Супы</h2>
-        <div class="grid-container">
-            <div class="dish">
-                <img src="soup1.jpg" alt="Суп 1">
-                <p class="name">Том Ям</p>
-                <p class="price">300₽</p>
-                <p class="weight">500 мл</p>
-                <button>Добавить</button>
-            </div>
-            <!-- More dishes... -->
+        <div id="soup-section" class="grid-container">
+            <!-- Dishes will be dynamically inserted here -->
         </div>
     </section>
 
-    <!-- Section with main dishes -->
     <section>
         <h2>Главные блюда</h2>
-        <div class="grid-container">
-            <div class="dish">
-                <img src="main1.jpg" alt="Блюдо 1">
-                <p class="name">Лазанья</p>
-                <p class="price">385₽</p>
-                <p class="weight">400 г</p>
-                <button>Добавить</button>
-            </div>
-            <!-- More dishes... -->
+        <div id="main-section" class="grid-container">
+            <!-- Dishes will be dynamically inserted here -->
         </div>
     </section>
 
-    <!-- Section with drinks -->
     <section>
         <h2>Напитки</h2>
-        <div class="grid-container">
-            <div class="dish">
-                <img src="drink1.jpg" alt="Напиток 1">
-                <p class="name">Компот</p>
-                <p class="price">150₽</p>
-                <p class="weight">250 мл</p>
-                <button>Добавить</button>
-            </div>
-            <div class="dish">
-                <img src="drink2.jpg" alt="Напиток 2">
-                <p class="name">фанта</p>
-                <p class="price">150₽</p>
-                <p class="weight">250 мл</p>
-                <button>Добавить</button>
-            </div>
-            <!-- More drinks... -->
+        <div id="drink-section" class="grid-container">
+            <!-- Dishes will be dynamically inserted here -->
         </div>
     </section>
-    <!-- do lunch -->
+
+    <section>
+        <h2>Ваш заказ</h2>
+        <ul id="order-list">
+            <!-- Ordered items will appear here -->
+        </ul>
+        <p id="total-price">Итого: 0₽</p>
+    </section>
     <section>
         <h2>Главные блюда</h2>
         <div class="order-container">
             <form action="https://httpbin.org/post" method="POST">
                 <div class="form-row">
                     <!-- Блок с заказом клиента -->
-                    <div class="form-section">
-                        <h3>Заказ клиента</h3>
-        
-                        <label for="soup">Выберите суп:</label>
-                        <select id="soup" name="soup" required>
-                            <option value="">Выберите суп</option>
-                            <option value="borscht">Том Ям</option>
-                            <option value="gaspacho">Гаспачо</option>
-                            <option value="chicken_soup">Куриный суп</option>
-                        </select>
-        
-                        <label for="main_dish">Выберите главное блюдо:</label>
-                        <select id="main_dish" name="main_dish" required>
-                            <option value="">Выберите главное блюдо</option>
-                            <option value="beef_steak">Говяжий стейк</option>
-                            <option value="chicken_cutlet">Лазанья</option>
-                            <option value="vegetarian_pasta">Вегетарианская паста</option>
-                        </select>
-        
-                        <label for="drink">Выберите напиток:</label>
-                        <select id="drink" name="drink" required>
-                            <option value="">Выберите напиток</option>
-                            <option value="tea">компот</option>
-                            <option value="coffee">фанта</option>
-                            <option value="juice">Сок</option>
-                        </select>
-        
-                        <label for="comment">Комментарий к заказу:</label>
-                        <textarea id="comment" name="comment" rows="4" placeholder="Ваш комментарий..."></textarea>
-                    </div>
+                      <div class="order-category">
+            <h3>Суп</h3>
+            <label id="souplabel">Блюдо не выбрано</label>
+        </div>
+        <div class="order-category">
+            <h3>Главное блюдо</h3>
+            <label id="mainlabel">Блюдо не выбрано</label>
+        </div>
+        <div class="order-category">
+            <h3>Напиток</h3>
+            <label id="drinklabel">Блюдо не выбрано</label>
+        </div>
+        <div class="order-summary">
+            <h3>Стоимость заказа</h3>
+            <label id="totallabel">0₽</label>
+        </div>
         
                     <!-- Блок с данными клиента -->
                     <div class="form-section">
