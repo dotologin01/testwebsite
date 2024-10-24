@@ -12,7 +12,6 @@ let totalPrice = 0;
 
 // Функция для добавления блюда в заказ
 function addorder(keyword, price) {
-    console.log('test');
     const dish = dishes.find(d => d.keyword === keyword);
 
     // Определяем категорию блюда и заменяем выбранное блюдо в соответствующей категории
@@ -36,23 +35,9 @@ function updateOrder() {
     const totalElement = document.querySelector('#totallabel');
 
     // Обновляем лейблы для каждого типа блюда
-    if (selectedSoup) {
-        soupLabel.textContent = `${selectedSoup.name} - ${selectedSoup.price}₽`;
-    } else {
-        soupLabel.textContent = 'Блюдо не выбрано';
-    }
-
-    if (selectedMain) {
-        mainLabel.textContent = `${selectedMain.name} - ${selectedMain.price}₽`;
-    } else {
-        mainLabel.textContent = 'Блюдо не выбрано';
-    }
-
-    if (selectedDrink) {
-        drinkLabel.textContent = `${selectedDrink.name} - ${selectedDrink.price}₽`;
-    } else {
-        drinkLabel.textContent = 'Напиток не выбран';
-    }
+    soupLabel.textContent = selectedSoup ? `${selectedSoup.name} - ${selectedSoup.price}₽` : 'Блюдо не выбрано';
+    mainLabel.textContent = selectedMain ? `${selectedMain.name} - ${selectedMain.price}₽` : 'Блюдо не выбрано';
+    drinkLabel.textContent = selectedDrink ? `${selectedDrink.name} - ${selectedDrink.price}₽` : 'Напиток не выбран';
 
     // Пересчитываем итоговую стоимость
     totalPrice = 0;
@@ -63,8 +48,6 @@ function updateOrder() {
     // Обновляем отображение итоговой стоимости
     totalElement.textContent = `Итого: ${totalPrice}₽`;
 }
-
-
 
 // Function to display dishes
 function displayDishes() {
@@ -86,10 +69,10 @@ function displayDishes() {
             <p class="name">${dish.name}</p>
             <p class="price">${dish.price}₽</p>
             <p class="weight">${dish.count}</p>
-            <button onclick="addorder(${dish.name}, ${dish.price})">Добавить</button>
+            <button class="add-button" data-keyword="${dish.keyword}" data-price="${dish.price}">Добавить</button>
         `;
 
-        // Add dish to the correct category
+        // Добавляем блюдо в соответствующий раздел
         if (dish.category === 'soup') {
             soupSection.appendChild(dishDiv);
         } else if (dish.category === 'main') {
@@ -97,6 +80,15 @@ function displayDishes() {
         } else if (dish.category === 'drink') {
             drinkSection.appendChild(dishDiv);
         }
+    });
+
+    // Добавляем обработчик событий для кнопок
+    document.querySelectorAll('.add-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const keyword = event.target.dataset.keyword;
+            const price = parseFloat(event.target.dataset.price);
+            addorder(keyword, price);
+        });
     });
 }
 
