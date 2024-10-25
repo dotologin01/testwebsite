@@ -50,32 +50,25 @@
                  <!-- Блок с заказом клиента -->
                     <div class="form-section">
                         <h3>Заказ клиента</h3>
+                        <div id="empty-message">Ничего не выбрано</div>
                         <div class="form-section">
-                            <h3>Суп</h3>
+                            <label id="souplabel1">Суп</label>
                             <label id="souplabel">Блюдо не выбрано</label>
                          </div>
-        
-
                         <div class="order-category">
-                            <h3>Главное блюдо</h3>
+                            <label id="mainlabel1">Главное</label>
                             <label id="mainlabel">Блюдо не выбрано</label>
                         </div>
-        
-
                         <div class="order-category">
-                            <h3>Напиток</h3>
+                            <label id="drinklabel1">Напиток</label>
                             <label id="drinklabel">Блюдо не выбрано</label>
                         </div>
                         <div class="order-summary">
-                            <h3>Стоимость заказа</h3>
                             <label id="totallabel">0₽</label>
                         </div>
                         <label for="comment">Комментарий к заказу:</label>
                         <textarea id="comment" name="comment" rows="4" placeholder="Ваш комментарий..."></textarea>
-                    </div>
-                    <!-- Блок с заказом клиента -->
-
-            
+                    </div>            
            
                     <!-- Блок с данными клиента -->
                     <div class="form-section">
@@ -112,7 +105,7 @@
                         </div>
                         <!-- Кнопки -->
                         <div class="form-buttons">
-                            <button type="reset">Сбросить</button>
+                            <button type="reset" id="resetbutton">Сбросить</button>
                             <button type="submit">Отправить</button>
                         </div>
                     </div>

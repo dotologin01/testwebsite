@@ -10,6 +10,23 @@ let selectedMain = null;
 let selectedDrink = null;
 let totalPrice = 0;
 
+// Функция для сброса выбранных блюд
+function resetorder() {
+    selectedSoup = null;
+    selectedMain = null;
+    selectedDrink = null;
+    totalPrice = 0;
+    
+    // Обновляем отображение заказа
+    updateOrder();
+}
+function hideOrderCategory() {
+    const orderCategory = document.querySelector('#order-category');
+    orderCategory.style.display = 'none';
+}
+// Добавляем обработчик событий для кнопки сброса
+document.getElementById('resetbutton').addEventListener('click', resetorder);
+
 // Функция для добавления блюда в заказ
 function addorder(keyword, price) {
     const dish = dishes.find(d => d.keyword === keyword);
@@ -21,6 +38,7 @@ function addorder(keyword, price) {
         selectedMain = dish;
     } else if (dish.category === 'drink') {
         selectedDrink = dish;
+        
     }
 
     // Обновляем список заказа и пересчитываем итоговую стоимость
@@ -32,7 +50,11 @@ function updateOrder() {
     const soupLabel = document.querySelector('#souplabel');
     const mainLabel = document.querySelector('#mainlabel');
     const drinkLabel = document.querySelector('#drinklabel');
+    const soupLabel1 = document.querySelector('#souplabel1');
+    const mainLabel1 = document.querySelector('#mainlabel1');
+    const drinkLabel1 = document.querySelector('#drinklabel1');
     const totalElement = document.querySelector('#totallabel');
+    const emptyMessage = document.querySelector('#empty-message');
 
     // Обновляем лейблы для каждого типа блюда
     soupLabel.textContent = selectedSoup ? `${selectedSoup.name} - ${selectedSoup.price}₽` : 'Блюдо не выбрано';
@@ -47,7 +69,43 @@ function updateOrder() {
 
     // Обновляем отображение итоговой стоимости
     totalElement.textContent = `Итого: ${totalPrice}₽`;
+
+    // Управляем видимостью меток и сообщения
+    const labelsVisible = selectedSoup || selectedMain || selectedDrink;
+    soupLabel.style.display = labelsVisible ? 'block' : 'none';
+    mainLabel.style.display = labelsVisible ? 'block' : 'none';
+    drinkLabel.style.display = labelsVisible ? 'block' : 'none';
+    soupLabel1.style.display = labelsVisible ? 'block' : 'none';
+    mainLabel1.style.display = labelsVisible ? 'block' : 'none';
+    drinkLabel1.style.display = labelsVisible ? 'block' : 'none';
+    totalElement.style.display = labelsVisible ? 'block' : 'none';
+    emptyMessage.style.display = labelsVisible ? 'none' : 'block'; // Показать или скрыть сообщение
+
+    if (!labelsVisible) {
+        hideOrderCategory();
+    } else {
+        document.querySelector('#order-category').style.display = 'block'; // Показываем контейнер, если есть выбор
+    }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const soupLabel = document.querySelector('#souplabel');
+    const mainLabel = document.querySelector('#mainlabel');
+    const drinkLabel = document.querySelector('#drinklabel');
+    const drinkLabel1 = document.querySelector('#drinklabel1');
+    const soupLabel1 = document.querySelector('#souplabel1');
+    const mainLabel1 = document.querySelector('#mainlabel1');
+    const totalElement = document.querySelector('#totallabel');
+    const emptyMessage = document.querySelector('#empty-message');
+    soupLabel.style.display = 'none';
+    mainLabel.style.display = 'none';
+    drinkLabel.style.display = 'none';
+    soupLabel1.style.display = 'none';
+    mainLabel1.style.display = 'none';
+    drinkLabel1.style.display = 'none';
+    totalElement.style.display = 'none';
+    emptyMessage.style.display = 'block'; // Показываем сообщение "Ничего не выбрано"
+});
 
 // Function to display dishes
 function displayDishes() {
@@ -81,7 +139,6 @@ function displayDishes() {
             drinkSection.appendChild(dishDiv);
         }
     });
-
     // Добавляем обработчик событий для кнопок
     document.querySelectorAll('.add-button').forEach(button => {
         button.addEventListener('click', (event) => {
