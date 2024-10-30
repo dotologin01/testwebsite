@@ -112,11 +112,15 @@ function displayDishes() {
     const soupSection = document.querySelector('#soup-section');
     const mainSection = document.querySelector('#main-section');
     const drinkSection = document.querySelector('#drink-section');
+    const saladStarterSection = document.querySelector('#salad-starter-section');
+    const dessertSection = document.querySelector('#dessert-section');
     
     // Clear sections
     soupSection.innerHTML = '';
     mainSection.innerHTML = '';
     drinkSection.innerHTML = '';
+    saladStarterSection.innerHTML = '';
+    dessertSection.innerHTML = '';
 
     // Loop through dishes and add them to the corresponding sections
     dishes.forEach(dish => {
@@ -137,6 +141,10 @@ function displayDishes() {
             mainSection.appendChild(dishDiv);
         } else if (dish.category === 'drink') {
             drinkSection.appendChild(dishDiv);
+        } else if (dish.category === 'salad-starter') {
+            saladStarterSection.appendChild(dishDiv);
+        } else if (dish.category === 'dessert') {
+            dessertSection.appendChild(dishDiv);
         }
     });
     // Добавляем обработчик событий для кнопок
@@ -148,6 +156,46 @@ function displayDishes() {
         });
     });
 }
+
+function applyFilter(category, kind) {
+    const section = document.querySelector(`#${category}-section .dish-container`);
+    section.innerHTML = ''; // Очистить секцию перед добавлением отфильтрованных блюд
+
+    const filteredDishes = kind ? dishes.filter(dish => dish.category === category && dish.kind === kind) : dishes.filter(dish => dish.category === category);
+
+    filteredDishes.forEach(dish => {
+        const dishDiv = document.createElement('div');
+        dishDiv.classList.add('dish');
+        dishDiv.innerHTML = `
+            <img src="${dish.image}" alt="${dish.name}">
+            <p class="name">${dish.name}</p>
+            <p class="price">${dish.price}₽</p>
+            <p class="weight">${dish.count}</p>
+            <button class="add-button" data-keyword="${dish.keyword}" data-price="${dish.price}">Добавить</button>
+        `;
+        section.appendChild(dishDiv);
+    });
+}
+
+// Обработчик кликов для фильтров
+document.querySelectorAll('button[data-kind]').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const category = event.target.closest('section').id.replace('-section', '');
+        const kind = event.target.getAttribute('data-kind');
+
+        // Убираем "active" класс с предыдущих фильтров
+        document.querySelectorAll(`#${category}-filters button`).forEach(btn => btn.classList.remove('active'));
+
+        // Тогглим выбранный фильтр
+        if (event.target.classList.contains('active')) {
+            event.target.classList.remove('active');
+            applyFilter(category, null); // Отображение всех блюд, если фильтр снят
+        } else {
+            event.target.classList.add('active');
+            applyFilter(category, kind); // Фильтрация по выбранному типу
+        }
+    });
+});
 
 // Initialize the display of dishes
 displayDishes();
