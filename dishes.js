@@ -7,7 +7,7 @@ const dishes = [
         price: 195,
         category: 'soup',
         count: '350 г',
-        image: 'soup1.jpg',
+        image: '../soup1.jpg',
         kind: 'veg'
     },
     {
@@ -16,7 +16,7 @@ const dishes = [
         price: 222,
         category: 'soup',
         count: '350 г',
-        image: 'soup1.jpg',
+        image: '../soup1.jpg',
         kind: 'veg'
     },
     {
@@ -25,7 +25,7 @@ const dishes = [
         price: 300,
         category: 'soup',
         count: '500 мл',
-        image: 'soup1.jpg',
+        image: '../soup1.jpg',
         kind: 'veg'
     },
     //MAIN
@@ -35,7 +35,7 @@ const dishes = [
         price: 385,
         category: 'main',
         count: '400 г',
-        image: 'main1.jpg',
+        image: '../main1.jpg',
         kind: 'veg'
     },
    //Drinks
@@ -45,7 +45,7 @@ const dishes = [
         price: 150,
         category: 'drink',
         count: '250 мл',
-        image: 'drink1.jpg',
+        image: '../drink1.jpg',
         kind: 'cold'
     },
     {
@@ -54,7 +54,7 @@ const dishes = [
         price: 150,
         category: 'drink',
         count: '250 мл',
-        image: './drink2.jpg',
+        image: '../drink2.jpg',
         kind: 'cold'
     },
     {
@@ -63,7 +63,7 @@ const dishes = [
         price: 160,
         category: 'drink',
         count: '330 мл',
-        image: './drink3.jpg',
+        image: '../drink3.jpg',
         kind: 'cold'
     },
     {
@@ -72,7 +72,7 @@ const dishes = [
         price: 180,
         category: 'drink',
         count: '200 мл',
-        image: './drink4.jpg',
+        image: '../drink4.jpg',
         kind: 'hot'
     },
     {
@@ -81,7 +81,7 @@ const dishes = [
         price: 220,
         category: 'drink',
         count: '300 мл',
-        image: './drink5.jpg',
+        image: '../drink5.jpg',
         kind: 'hot'
     },
     {
@@ -90,7 +90,7 @@ const dishes = [
         price: 100,
         category: 'drink',
         count: '250 мл',
-        image: './drink6.jpg',
+        image: '../drink6.jpg',
         kind: 'hot'
     },
     //SALAT
@@ -100,7 +100,7 @@ const dishes = [
         price: 350,
         category: 'salad-starter',
         count: '200 г',
-        image: './salad1.jpg',
+        image: '../salad1.jpg',
         kind: 'meat'
     },
     {
@@ -118,7 +118,7 @@ const dishes = [
         price: 300,
         category: 'salad-starter',
         count: '250 г',
-        image: './salad2.jpg',
+        image: '../salad2.jpg',
         kind: 'veg'
     },
     {
@@ -127,7 +127,7 @@ const dishes = [
         price: 200,
         category: 'salad-starter',
         count: '120 г',
-        image: './starter2.jpg',
+        image: '../starter2.jpg',
         kind: 'veg'
     },
     {
@@ -136,7 +136,7 @@ const dishes = [
         price: 550,
         category: 'salad-starter',
         count: '180 г',
-        image: './salad3.jpg',
+        image: '../salad3.jpg',
         kind: 'fish'
     },
     {
@@ -145,7 +145,7 @@ const dishes = [
         price: 450,
         category: 'salad-starter',
         count: '150 г',
-        image: './starter3.jpg',
+        image: '../starter3.jpg',
         kind: 'fish'
     },
     //DESERT
@@ -155,7 +155,7 @@ const dishes = [
         price: 120,
         category: 'dessert',
         count: '50 г',
-        image: './dessert1.jpg',
+        image: '../dessert1.jpg',
         kind: 'small'
     },
     {
@@ -164,7 +164,7 @@ const dishes = [
         price: 150,
         category: 'dessert',
         count: '80 г',
-        image: './dessert2.jpg',
+        image: '../dessert2.jpg',
         kind: 'small'
     },
     {
@@ -173,7 +173,7 @@ const dishes = [
         price: 200,
         category: 'dessert',
         count: '120 г',
-        image: './dessert3.jpg',
+        image: '../dessert3.jpg',
         kind: 'medium'
     },
     {
@@ -182,7 +182,7 @@ const dishes = [
         price: 180,
         category: 'dessert',
         count: '150 г',
-        image: './dessert4.jpg',
+        image: '../dessert4.jpg',
         kind: 'medium'
     },
     {
@@ -191,7 +191,7 @@ const dishes = [
         price: 300,
         category: 'dessert',
         count: '200 г',
-        image: './dessert5.jpg',
+        image: '../dessert5.jpg',
         kind: 'large'
     },
     {
@@ -200,7 +200,7 @@ const dishes = [
         price: 350,
         category: 'dessert',
         count: '250 г',
-        image: './dessert6.jpg',
+        image: '../dessert6.jpg',
         kind: 'large'
     }
     
