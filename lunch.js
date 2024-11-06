@@ -165,45 +165,39 @@ function displayDishes() {
     });
 }
 
-function applyFilter(category, kind) {
-    const section = document.querySelector(`#${category}-section .dish-container`);
-    section.innerHTML = ''; // Очистить секцию перед добавлением отфильтрованных блюд
+document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
-    const filteredDishes = kind ? dishes.filter(dish => dish.category === category && dish.kind === kind) : dishes.filter(dish => dish.category === category);
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const kind = button.getAttribute('data-kind');
+            const section = button.closest('section');
+            const dishes  = section.querySelectorAll('.dish');
 
-    filteredDishes.forEach(dish => {
-        const dishDiv = document.createElement('div');
-        dishDiv.classList.add('dish');
-        dishDiv.innerHTML = `
-            <img src="${dish.image}" alt="${dish.name}">
-            <p class="name">${dish.name}</p>
-            <p class="price">${dish.price}₽</p>
-            <p class="weight">${dish.count}</p>
-            <button class="add-button" data-keyword="${dish.keyword}" data-price="${dish.price}">Добавить</button>
-        `;
-        section.appendChild(dishDiv);
-    });
-}
+            // Если кнопка уже активна, снимаем класс active и показываем все блюда
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                dishes.forEach(dish => dish.style.display = 'block'); // Показываем все блюда
+            } else {
+                // Убираем класс active у всех кнопок
+                filterButtons.forEach(btn => btn.classList.remove('active'));
 
-// Обработчик кликов для фильтров
-document.querySelectorAll('button[data-kind]').forEach(button => {
-    button.addEventListener('click', (event) => {
-        const category = event.target.closest('section').id.replace('-section', '');
-        const kind = event.target.getAttribute('data-kind');
+                // Добавляем класс active к текущей кнопке
+                button.classList.add('active');
 
-        // Убираем "active" класс с предыдущих фильтров
-        document.querySelectorAll(`#${category}-filters button`).forEach(btn => btn.classList.remove('active'));
-
-        // Тогглим выбранный фильтр
-        if (event.target.classList.contains('active')) {
-            event.target.classList.remove('active');
-            applyFilter(category, null); // Отображение всех блюд, если фильтр снят
-        } else {
-            event.target.classList.add('active');
-            applyFilter(category, kind); // Фильтрация по выбранному типу
-        }
+                // Показать/скрыть блюда в зависимости от фильтра
+                dishes.forEach(dish => {
+                    if (dish.getAttribute('data-kind') === kind) {
+                        dish.style.display = 'block';
+                    } else {
+                        dish.style.display = 'none';
+                    }
+                });
+            }
+        });
     });
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const soupLabel = document.querySelector('#souplabel');
