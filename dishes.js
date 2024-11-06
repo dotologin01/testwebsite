@@ -28,16 +28,88 @@ const dishes = [
         image: '../soup1.jpg',
         kind: 'meat'
     },
+    {
+        keyword: "borsch",
+        name: "Борщ",
+        price: 250,
+        category: "soup",
+        count: "400 мл",
+        image: "../soup2.jpg",
+        kind: "meat"
+    },
+    {
+        keyword: "salmon_soup",
+        name: "Суп с лососем",
+        price: 320,
+        category: "soup",
+        count: "450 мл",
+        image: "../soup3.jpg",
+        kind: "fish"
+    },
+    {
+        keyword: "fish_soup",
+        name: "Уха",
+        price: 270,
+        category: "soup",
+        count: "500 мл",
+        image: "../soup4.jpg",
+        kind: "fish"
+    },
     //MAIN
     {
-        keyword: 'lasagna',
-        name: 'Лазанья',
+        keyword: "lasagna",
+        name: "Лазанья",
         price: 385,
-        category: 'main',
-        count: '400 г',
-        image: '../main1.jpg',
-        kind: 'veg'
+        category: "main",
+        count: "400 г",
+        image: "../main1.jpg",
+        kind: "veg"
     },
+    {
+        keyword: "veggie_pasta",
+        name: "Овощная паста",
+        price: 360,
+        category: "main",
+        count: "350 г",
+        image: "../main2.jpg",
+        kind: "veg"
+    },
+    {
+        keyword: "steak",
+        name: "Стейк",
+        price: 550,
+        category: "main",
+        count: "300 г",
+        image: "../main3.jpg",
+        kind: "meat"
+    },
+    {
+        keyword: "beef_burger",
+        name: "Бургер с говядиной",
+        price: 420,
+        category: "main",
+        count: "250 г",
+        image: "../main4.jpg",
+        kind: "meat"
+    },
+    {
+        keyword: "salmon_steak",
+        name: "Стейк из лосося",
+        price: 490,
+        category: "main",
+        count: "300 г",
+        image: "../main5.jpg",
+        kind: "fish"
+    },
+    {
+        keyword: "tuna_pasta",
+        name: "Паста с тунцом",
+        price: 410,
+        category: "main",
+        count: "350 г",
+        image: "../main6.jpg",
+        kind: "fish"
+    },    
    //Drinks
     {
         keyword: 'compote',
