@@ -134,6 +134,7 @@ function displayDishes() {
     dishes.forEach(dish => {
         const dishDiv = document.createElement('div');
         dishDiv.classList.add('dish');
+        dishDiv.setAttribute('data-kind', dish.kind); 
         dishDiv.innerHTML = `
             <img src="${dish.image}" alt="${dish.name}">
             <p class="name">${dish.name}</p>

@@ -26,7 +26,7 @@ const dishes = [
         category: 'soup',
         count: '500 мл',
         image: '../soup1.jpg',
-        kind: 'veg'
+        kind: 'meat'
     },
     //MAIN
     {
