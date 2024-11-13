@@ -182,7 +182,7 @@ const dishes = [
         category: 'salad-starter',
         count: '150 г',
         image: './starter1.jpg',
-        kind: 'meat'
+        kind: 'veg'
     },
     {
         keyword: 'greek_salad',
@@ -218,7 +218,7 @@ const dishes = [
         category: 'salad-starter',
         count: '150 г',
         image: '../starter3.jpg',
-        kind: 'fish'
+        kind: 'veg'
     },
     //DESERT
     {
@@ -273,7 +273,7 @@ const dishes = [
         category: 'dessert',
         count: '250 г',
         image: '../dessert6.jpg',
-        kind: 'large'
+        kind: 'small'
     }
     
 ];
