@@ -1,7 +1,6 @@
 /* Apply universal settings */
 * {
     box-sizing: border-box;
-
     padding: 4px;
 }
 html{

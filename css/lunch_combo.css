@@ -1,0 +1,132 @@
+/* Контейнер для всех вариантов ланчей */
+.lunch-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Сетка из 3 колонок */
+    gap: 20px; /* Расстояние между блоками */
+    justify-items: center; /* Центрирование блоков в сетке */
+    margin-top: 20px;
+}
+
+/* Блок каждого варианта ланча */
+.lunch-option {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Расстояние между блюдами */
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.lunch-text {
+    text-align: center;
+}
+
+/* Блок для каждого блюда */
+.dish-option {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение иконки и подписи */
+    align-items: center;
+    text-align: center;
+}
+
+/* Изображения блюд */
+.dish-option img {
+    width: 64px; /* Фиксированный размер изображений */
+    height: 64px;
+    transition: transform 0.3s ease;
+}
+
+.dish-option img:hover {
+    transform: scale(1.2); /* Увеличение изображения при наведении */
+}
+
+/* Подпись под изображением */
+.dish-option p {
+    margin-top: 5px;
+    margin-bottom: 1px;
+    font-size: 14px;
+}
+
+/* Информация о десертах */
+.dessert-info p {
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+/* CSS для уведомлений*/
+#notification-text{
+    margin-bottom: 30px;
+    margin-top: 20px;
+    white-space: pre-line;
+}
+
+#notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    color: white;
+    text-align: center; /* Центрирование текста */
+}
+
+#notification.hidden {
+    display: none;
+}
+
+#notification-button {
+    /* Стили для кнопки */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Зеленый */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход */
+}
+#notification-button:hover {
+    background-color: #3e8e41; /* Более темный зеленый при наведении */
+}
+/* style.css */
+#notification {
+    max-width: 90%; /* Адаптивная ширина */
+    box-sizing: border-box;  /* Чтобы padding не увеличивал общую ширину */
+}
+
+body.noscroll { /* Новый стиль для body */
+    overflow: hidden; /* Отключаем прокрутку */
+}
+
+
+/* Медиа-запрос для экранов шириной 800px и меньше */
+@media (max-width: 800px) {
+    .lunch-options-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 10px;
+    }
+    .lunch-option {
+        flex-direction: column; /* Вертикальное расположение блюд */
+        gap: 20px;
+    }
+}
+
+/* Медиа-запрос для экранов шириной 600px и меньше */
+@media (max-width: 600px) {
+    .lunch-options-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 8px;
+    }
+    .lunch-option {
+        flex-direction: column; /* Вертикальное расположение блюд */
+        gap: 15px;
+    }
+    .dish-option img {
+        width: 48px; /* Уменьшенные изображения */
+        height: 48px;
+    }
+    .dish-option p {
+        font-size: 12px; /* Меньший шрифт */
+    }
+}

@@ -68,7 +68,12 @@
       grid-template-columns: 1fr;
   }
 }
-
+/* Медиа-запрос для экранов шириной <= 600px */
+@media (max-width: 600px) {
+  .form-row {
+      flex-direction: column; /* Размещаем блоки вертикально */
+  }
+}
 /*----ORDER----*/
 .order-container {
   max-width: 900px;
@@ -135,10 +140,5 @@ button[type="submit"] {
   color: white;
 }
 
-/* Медиа-запрос для экранов шириной <= 600px */
-@media (max-width: 600px) {
-  .form-row {
-      flex-direction: column; /* Размещаем блоки вертикально */
-  }
-}
+
 
