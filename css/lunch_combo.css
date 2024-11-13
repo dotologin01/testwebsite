@@ -107,7 +107,7 @@ body.noscroll { /* Новый стиль для body */
         gap: 10px;
     }
     .lunch-option {
-        flex-direction: column; /* Вертикальное расположение блюд */
+        flex-direction: row; /* Вертикальное расположение блюд */
         gap: 20px;
     }
 }
@@ -119,7 +119,7 @@ body.noscroll { /* Новый стиль для body */
         gap: 8px;
     }
     .lunch-option {
-        flex-direction: column; /* Вертикальное расположение блюд */
+        flex-direction: row; /* Вертикальное расположение блюд */
         gap: 15px;
     }
     .dish-option img {

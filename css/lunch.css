@@ -4,8 +4,82 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
+/* Сетка для блоков блюд */
+.dishes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 
-/* Styles for individual dish */
+/* Блок каждого блюда */
+.dish {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  background-color: white;
+  border-radius: 35px;
+  cursor: pointer;
+  filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+}
+
+.dish img {
+  width: 100%;
+  border-radius: 35px;
+  margin-left: 0;
+}
+
+/* Цена */
+.dish p:nth-child(2){
+  font-size: 25pt;
+}
+
+/* Блюдо */
+.dish p:nth-child(3) {
+  font-size: 20pt;
+}
+
+/* Вес */
+.dish p:nth-child(4) {
+  color: gray;
+}
+
+/* Кнопка добавления */
+.dish button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 30px;
+  background-color: #f1eee9;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Hover-эффекты */
+.dish:hover {
+  border: 2px solid tomato;
+}
+
+.dish:hover button {
+  background-color: tomato;
+}
+
+/* Адаптивность для <=800px */
+@media (max-width: 800px) {
+  .dishes {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Адаптивность для <=600px */
+@media (max-width: 600px) {
+  .dishes {
+      grid-template-columns: repeat(3, 1fr);
+  }
+
+  h2 {
+      text-align: center;
+  }
+}
+/* 
 .dish {
   display: flex;
   flex-direction: column;
