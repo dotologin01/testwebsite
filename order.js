@@ -87,7 +87,7 @@ function checkOrder() {
         return false;
     }
     else if ((hasDrink || hasDesert) && !hasMainDish && !(hasSoup && hasSaladStarter)) { //Напиток/Десерт без главного - ошибка
-        showNotification("Выберите суп");
+        showNotification("Выберите главное блюдо");
         return false;
     }
     else {
