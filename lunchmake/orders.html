@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Food Construct - История заказов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/lunch.css">
+    <link rel="stylesheet" href="../css/lunch_choose.css">
+    <link rel="stylesheet" href="../css/order.css">
+    <link rel="stylesheet" href="../css/orders.css">
+    <script src="../order_java/orders.js"></script>
+</head>
+<body>
+    <header>
+        <section id="choose" class="fast_travel">
+            <h1><a href='../index.html'>Food Construct</a></h1>
+            <nav class="fast_travel_2">
+                <h3>
+                    <a href='about.html'>О нас</a>
+                    <a href='makelunch.html'>Собрать ланч</a>
+                    <a href='order.html'>Оформить заказ</a>
+                    <a href="#" id="active">Заказы</a>
+                    <a href="#contacts">Контакты</a>
+                </h3>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <h2>История заказов</h2>
+        
+        <table id="orders-table">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Дата оформления</th>
+                    <th>Состав заказа</th>
+                    <th>Стоимость</th>
+                    <th>Время доставки</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Добавляем модальные окна -->
+    <div id="viewOrderModal" class="modal">
+        <div class="modal-content">
+
+            <h3>Просмотр заказа</h3>
+            <hr>
+            <div class="modal-body"></div>
+            <hr>
+            <div class="modal-footer">
+                <button onclick="closeModal('viewOrderModal')">Ок</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="editOrderModal" class="modal">
+        <div class="modal-content">
+
+            <h3>Редактирование заказа</h3>
+
+            <div class="modal-body"></div>
+            <hr>
+            <div class="modal-footer">
+                <button onclick="closeModal('editOrderModal')">Отмена</button>
+                <button onclick="saveOrder()">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteOrderModal" class="modal">
+        <div class="modal-content">
+
+            <h3>Подтверждение удаления</h3>
+            <hr>
+            <p>Вы действительно хотите удалить этот заказ?</p>
+            <hr>
+            <div class="modal-footer">
+
+                <button onclick="closeModal('deleteOrderModal')">Отмена</button>
+                <button onclick="confirmDelete()">Да</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <span id="notification-message"></span>
+    </div>
+
+    <footer>
+        <div>
+            <section id="contacts" class="contacts">
+                <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+            </section>
+        </div>
+    </footer>
+    <!-- Модальные окна и скрипты оставляем без изменений -->
+</body>
+</html> 

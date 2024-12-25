@@ -8,7 +8,7 @@ let order = {
 
 function addToOrder(dish) {
     order[dish.category] = dish;
-    updateOrderDisplay();
+    /*updateOrderDisplay();*/
 }
 
 function updateOrderDisplay() {
@@ -26,7 +26,7 @@ function updateOrderDisplay() {
         (order.drink ? order.drink.price : 0) +
         (order.dessert ? order.dessert.price : 0);
 
-    if (!order.soup && !order.main_dish && !order.salad && !order.drink && !order.dessert) {
+    if (!order.soup && !order["main-course"] && !order.salad && !order.drink && !order.dessert) {
         orderSection.innerHTML = `
             <h3>Ваш заказ</h3>
             <p class="bold-text">Ничего не выбрано</p>
@@ -54,45 +54,43 @@ function updateOrderDisplay() {
 }
 
 function checkOrder() {
-    const hasSoup = order.soup !== null;
-    const hasMainDish = order["main-course"] !== null;
-    const hasSaladStarter = order.salad !== null;
-    const hasDrink = order.drink !== null;
-    const hasDesert = order.dessert !== null;
+    const selectedDishesIds = JSON.parse(localStorage.getItem('selectedDishes')) || [];
+    
+    // Если нет выбранных блюд, возвращаем false
+    if (selectedDishesIds.length === 0) {
+        return false;
+    }
 
-    // Проверка полностью собранных комбинаций (без изменений)
-    if (hasSoup && hasMainDish && hasSaladStarter && hasDrink) return true;
-    if (hasSoup && hasMainDish && hasDrink && !hasSaladStarter) return true;
-    if (hasSoup && hasSaladStarter && hasDrink && !hasMainDish) return true;
-    if (!hasSoup && hasMainDish && hasSaladStarter && hasDrink) return true;
-    if (!hasSoup && !hasSaladStarter && hasMainDish && hasDrink) return true;
+    // Подсчитываем количество блюд каждой категории
+    let categories = {
+        soup: 0,
+        "main-course": 0,
+        salad: 0,
+        drink: 0
+    };
 
-    if (!hasSoup && !hasMainDish && !hasSaladStarter && !hasDrink && !hasDesert) {
-        showNotification("Ничего не выбрано. Выберите блюда для заказа");
-        return false;
-    } else if (hasSoup && !hasMainDish && !hasSaladStarter && !hasDrink) { // Только суп - ошибка
-        showNotification("Выберите главное блюдо/салат/стартер и напиток");
-        return false;
-    } else if (hasSaladStarter && !hasSoup && !hasMainDish && !hasDrink) { // Только салат/стартер - ошибка
-        showNotification("Выберите суп или главное блюдо и напиток");
-        return false;
-    }else if (!hasDrink && (hasSoup || hasMainDish || hasSaladStarter)) {
-        showNotification("Выберите напиток");
-        return false;
-    } else if (hasSoup && !(hasMainDish || hasSaladStarter)) { // Только суп - ошибка
-        showNotification("Выберите главное блюдо/салат/стартер");
-        return false;
-    }else if ((hasSaladStarter || hasMainDish) && !hasSoup && hasDrink) {
-        showNotification("Выберите суп");
-        return false;
-    }
-    else if ((hasDrink || hasDesert) && !hasMainDish && !(hasSoup && hasSaladStarter)) { //Напиток/Десерт без главного - ошибка
-        showNotification("Выберите суп");
-        return false;
-    }
-    else {
-        return true;  // Заказ корректен
-    }
+    selectedDishesIds.forEach(dishId => {
+        const dish = sortedDishes.find(d => d.id === parseInt(dishId));
+        if (dish && categories.hasOwnProperty(dish.category)) {
+            categories[dish.category]++;
+        }
+    });
+
+    // Проверяем допустимые комбинации
+    const validCombinations = [
+        // Полный набор
+        categories.soup >= 1 && categories["main-course"] >= 1 && categories.salad >= 1 && categories.drink >= 1,
+        // Суп + главное + напиток
+        categories.soup >= 1 && categories["main-course"] >= 1 && categories.drink >= 1,
+        // Суп + салат + напиток
+        categories.soup >= 1 && categories.salad >= 1 && categories.drink >= 1,
+        // Главное + салат + напиток
+        categories["main-course"] >= 1 && categories.salad >= 1 && categories.drink >= 1,
+        // Главное + напиток
+        categories["main-course"] >= 1 && categories.drink >= 1
+    ];
+
+    return validCombinations.some(combo => combo === true);
 }
 
 function showNotification(message) {

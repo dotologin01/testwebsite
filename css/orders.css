@@ -1,0 +1,300 @@
+#orders-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+#orders-table th,
+#orders-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+#orders-table thead {
+    border-top: 1px solid #ddd; /* Добавляем линию сверху заголовков */
+    border-bottom: 1px solid #ddd; /* Оставляем линию снизу заголовков */
+}
+
+#orders-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+#orders-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.actions-cell {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.actions-cell button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 2px;
+}
+
+.actions-cell button:hover {
+    opacity: 0.8;
+}
+
+.bi-eye {
+    color: #0066cc;
+}
+
+.bi-pencil {
+    color: #28a745;
+}
+
+.bi-trash {
+    color: #dc3545;
+}
+
+.bi {
+    font-size: 16px;
+}
+
+/* Стили для контейнера заказов */
+.orders-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для одальных окон */
+.modal-body {
+    margin: 20px 0;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.info-row label {
+    width: 45%;
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.info-row span {
+    width: 55%;
+    text-align: left;
+    padding-left: 0;
+}
+
+
+
+.section-header {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.section-header label {
+    width: 100%;
+    text-align: left;
+    font-style: normal;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-footer button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-footer button:first-child {
+    background-color: #6c757d;
+    color: white;
+}
+
+.modal-footer button:last-child {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Стили для формы редактирования */
+#edit-order-form input,
+#edit-order-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.delivery-type-inputs {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Стили для уведомлений */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 4px;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.modal-content hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 10px;
+    align-items: center;
+}
+
+.info-row label {
+    min-width: 150px;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+
+.section-header {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.section-header label {
+    text-align: left;
+}
+
+/* Стили для модального окна */
+.modal-content {
+    width: 90%;
+    max-width: 600px;
+    padding: 20px 30px;
+}
+
+/* Переопределяем стили из lunch.css для формы редактирования */
+#editOrderModal #edit-order-form {
+    display: block !important; /* Вместо grid */
+    grid-template-columns: initial !important;
+    gap: 0 !important;
+    max-width: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Остальные стили для формы редактирования */
+#editOrderModal #edit-order-form .info-row {
+    display: flex !important;
+    margin-bottom: 15px !important;
+    gap: 20px !important;
+    align-items: center !important;
+}
+
+#editOrderModal #edit-order-form input[type="text"],
+#editOrderModal #edit-order-form input[type="tel"],
+#editOrderModal #edit-order-form input[type="email"],
+#editOrderModal #edit-order-form input[type="time"] {
+    width: 55% !important;
+    padding: 8px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+}
+
+#editOrderModal .delivery-type-inputs {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 55% !important; /* Увеличиваем ширину контейнера */
+}
+
+#editOrderModal .radio-label {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 5px 0 !important;
+    width: 100% !important;
+}
+
+#editOrderModal .radio-label input[type="radio"] {
+    margin: 0 10px 0 0 !important;
+    width: auto !important; /* Фиксируем ширину radio */
+}
+
+/* Стиль для контейнера времени доставки */
+#editOrderModal .time-container {
+    width: 55% !important;
+}
+
+#editOrderModal input[type="time"] {
+    width: 100% !important;
+    padding: 8px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+}
+
+/* Стили для правильного позиционирования футера */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+footer {
+    margin-top: auto;
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Для контейнера внутри футера */
+footer > div {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Стили для секции контактов в футере */
+.contacts {
+    text-align: center;
+}
