@@ -130,7 +130,6 @@ function showNotification(message) {
     
                 selectedDishesIds.forEach(dishId => {
                     const dish = dishes.find(d => d.id === parseInt(dishId));
-    
                     if (dish) {
                         // Создаем карточку блюда
                         const dishElement = createDishElement(dish);
@@ -212,7 +211,7 @@ function showNotification(message) {
     
                         formData.set('delivery_time', deliveryTime);
     
-                        const apiKey = '6abf2df4-0e72-432b-87c4-7879dd7c4d85';
+                        const apiKey = 'd70c5ad1-1980-475b-b33a-d68d32f1dad4';
                         const apiUrlWithKey = `${orderForm.action}?api_key=${apiKey}`;
     
                         try { // try для отправки заказа

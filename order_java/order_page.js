@@ -5,6 +5,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const selectedDishesIds = JSON.parse(localStorage.getItem('selectedDishes')) || [];
 
+    const resetButton = document.getElementById('resetButton');
+    if (resetButton) {
+        resetButton.addEventListener('click', async () => {
+            // Очищаем localStorage
+            localStorage.removeItem('selectedDishes');
+            
+            // Сбрасываем объект order
+            order = {
+                soup: null,
+                "main-course": null,
+                salad: null,
+                drink: null,
+                dessert: null
+            };
+
+            // Очищаем контейнер с выбранными блюдами
+            const orderedDishesContainer = document.getElementById('orderedDishes');
+            orderedDishesContainer.innerHTML = '<div class="empty-order-message"><p>Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на <a href="place_order.html" class="empty-order-message-href">страницу "Собрать ланч"</a>.</p></div>';
+
+            // Вызываем функцию updateOrderDisplay из order.js
+            updateOrderDisplay();
+        });
+    }
+
+
     if (selectedDishesIds.length === 0) {
         const emptyOrderMessage = document.createElement('div'); // Создаем div для сообщения
         emptyOrderMessage.className = 'empty-order-message'; // Добавляем класс для стилей

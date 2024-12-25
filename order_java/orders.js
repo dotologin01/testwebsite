@@ -143,9 +143,6 @@ async function showOrderDetails(orderId) {
                 <span>${formatDate(order.created_at)}</span>
             </div>
             <div class="info-row">
-                <label>Доставка</label>
-            </div>
-            <div class="info-row">
                 <label>Имя получателя:</label>
                 <span>${order.full_name}</span>
             </div>
@@ -237,9 +234,6 @@ async function editOrder(orderId) {
                 <div class="info-row">
                     <label>Дата оформления:</label>
                     <span>${formatDate(order.created_at)}</span>
-                </div>
-                <div class="info-row section-header">
-                    <label>Доставка</label>
                 </div>
                 <div class="info-row">
                     <label>Имя получателя:</label>
@@ -365,7 +359,7 @@ async function saveOrder() {
 
         const orderId = form.dataset.orderId;
         const formData = new FormData(form);
-        const apiKey = '6abf2df4-0e72-432b-87c4-7879dd7c4d85';
+        const apiKey = 'd70c5ad1-1980-475b-b33a-d68d32f1dad4';
         
         const response = await fetch(`http://lab8-api.std-900.ist.mospolytech.ru/labs/api/orders/${orderId}?api_key=${apiKey}`, {
             method: 'PUT',

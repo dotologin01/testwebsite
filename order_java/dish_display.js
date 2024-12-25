@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             throw new Error(`Ошибка HTTP: ${response.status}`);
         }
         const dishes_massive = await response.json();
-
         sortedDishes = dishes_massive.sort((a, b) => a.name.localeCompare(b.name));
 
         sortedDishes.forEach(dish => {
@@ -65,17 +64,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         });
 
-        resetButton.addEventListener('click', () => {
-            order = {
-                soup: null,
-                "main-course": null, //здесь main_dish
-                salad: null, //здесь salad_starter
-                drink: null,
-                dessert: null //здесь desert
-            };
-            updateOrderDisplay();
-
-        });
 
     } catch (error) {
         console.error("Ошибка при загрузке данных:", error);
