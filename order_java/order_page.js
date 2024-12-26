@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Очищаем контейнер с выбранными блюдами
             const orderedDishesContainer = document.getElementById('orderedDishes');
-            orderedDishesContainer.innerHTML = '<div class="empty-order-message"><p>Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на <a href="place_order.html" class="empty-order-message-href">страницу "Собрать ланч"</a>.</p></div>';
+            orderedDishesContainer.innerHTML = '<div class="empty-order-message"><p>Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на <a href="makelunch.html" class="empty-order-message-href">страницу "Собрать ланч"</a>.</p></div>';
 
             // Вызываем функцию updateOrderDisplay из order.js
             updateOrderDisplay();
